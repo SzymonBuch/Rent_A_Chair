@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Tables list{% endblock %}
+
+{% block content %}
+    <h1>Existing tables</h1>
+
+    <ul>
+            <li>
+                <a href="{% url 'storage' %}">
+                    Storages
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'worker' %}">
+                    Workers
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'product' %}">
+                    Products
+                </a>
+            </li>
+    </ul>
+
+
+{% endblock %}
