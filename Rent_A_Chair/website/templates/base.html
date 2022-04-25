@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'website/style.css' %}">
+    <link href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet">
+
 </head>
 <body>
     {% block content %}
     {% endblock %}
+
+    <script src="{% static 'website/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
