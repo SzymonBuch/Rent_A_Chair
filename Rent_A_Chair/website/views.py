@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 
 from Rent_A_Chair_App.models import Storage, Worker, Product
 
@@ -17,3 +18,15 @@ def worker(request):
 
 def product(request):
     return render(request, "website/product.html", {"products": Product.objects.all()})
+
+
+
+
+
+
+
+
+
+
+
+
