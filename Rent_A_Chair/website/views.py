@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.http import FileResponse
 from django.shortcuts import render, redirect
 
@@ -17,7 +18,12 @@ def worker(request):
 
 
 def product(request):
-    return render(request, "website/product.html", {"products": Product.objects.all()})
+    products_list = Product.objects.all()
+    paginator = Paginator(products_list, 1)
+
+    page_number = request.GET.get("page")
+    products = paginator.get_page(page_number)
+    return render(request, "website/product.html", {"products": products})
 
 
 def return_image(response):
