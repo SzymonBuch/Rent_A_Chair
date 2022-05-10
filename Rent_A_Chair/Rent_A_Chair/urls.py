@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from website.views import index, storage, worker, product
+from website.views import index, storage, worker, product, return_image
 
 
 urlpatterns = [
@@ -26,4 +26,5 @@ urlpatterns = [
     path('worker', worker, name='worker'),
     path('product', product, name='product'),
     path('Rent_A_Chair_App/', include('Rent_A_Chair_App.urls'), name='product'),
+    path('return_image', return_image, name='return_image')
 ]

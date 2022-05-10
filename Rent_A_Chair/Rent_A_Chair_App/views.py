@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.forms import modelform_factory
+from django.http import HttpResponse, FileResponse
 
 from .models import Product, Worker, Storage
+import csv, datetime
 
 
 ProductForm = modelform_factory(Product, exclude=[])
@@ -40,4 +42,22 @@ def new_worker(request):
     else:
         form = WorkerForm()
     return render(request, "website/new_worker.html", {"form": form})
-# Create your views here.
+
+
+def product_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachement; filename=Products' + \
+                                      str(datetime.datetime.now()) +'.csv'
+
+    writer = csv.writer(response)
+    writer.writerow(['Name', 'Price', "Amount", 'Storage'])
+
+    products = Product.objects.filter()
+
+    for product in products:
+        writer.writerow([product.name, product.price, product.amount, product.storage_id.name])
+
+    return response
+
+
+

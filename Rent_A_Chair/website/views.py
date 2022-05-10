@@ -1,5 +1,5 @@
+from django.http import FileResponse
 from django.shortcuts import render, redirect
-
 
 from Rent_A_Chair_App.models import Storage, Worker, Product
 
@@ -20,13 +20,9 @@ def product(request):
     return render(request, "website/product.html", {"products": Product.objects.all()})
 
 
+def return_image(response):
+    img = open('website/static/website/media/bc2.jpg', 'rb')
 
+    response = FileResponse(img)
 
-
-
-
-
-
-
-
-
+    return response
