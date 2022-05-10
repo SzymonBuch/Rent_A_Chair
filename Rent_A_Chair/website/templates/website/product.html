@@ -18,6 +18,9 @@
         <li>
             Storage: {{product.storage_id.name}}
         </li>
+        {% if product.image %}
+        <img src="{{ product.image.url }}">
+        {% endif %}
         {% endfor %}
     </ul>
 

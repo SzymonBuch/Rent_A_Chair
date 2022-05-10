@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from website.views import index, storage, worker, product, return_image
 
@@ -26,5 +28,5 @@ urlpatterns = [
     path('worker', worker, name='worker'),
     path('product', product, name='product'),
     path('Rent_A_Chair_App/', include('Rent_A_Chair_App.urls'), name='product'),
-    path('return_image', return_image, name='return_image')
-]
+    path('return_image', return_image, name='return_image'),
+]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
