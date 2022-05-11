@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.forms import modelform_factory
-from django.http import HttpResponse, FileResponse
+from django.http import HttpResponse
 
 from .models import Product, Worker, Storage
 import csv, datetime
@@ -58,6 +58,5 @@ def product_csv(request):
         writer.writerow([product.name, product.price, product.amount, product.storage_id.name])
 
     return response
-
 
 

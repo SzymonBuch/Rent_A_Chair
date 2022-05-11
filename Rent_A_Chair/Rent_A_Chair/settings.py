@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',
     'Rent_A_Chair_App',
+    'django_filters',
+    'bootstrapform',
+
 ]
 
 MIDDLEWARE = [
